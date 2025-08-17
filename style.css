@@ -1,0 +1,407 @@
+
+/* --- NÚCLEO DEL CAOS --- */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+:root {
+    --color-fondo: #0a0a0a;
+    --color-texto: #e0e0e0;
+    --color-brillo: #ff00ff;
+    --color-glitch-1: #00ffff;
+    --color-glitch-2: #ff00ff;
+    --color-terminal: #00ff41;
+    --fuente-principal: 'VT323', monospace;
+    --fuente-secundaria: 'Special Elite', cursive;
+}
+
+/* --- RESETEO ANÁRQUICO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+}
+
+/* --- SCROLLBAR CORRUPTO --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-brillo);
+    border: 1px solid var(--color-glitch-1);
+    box-shadow: 0 0 5px var(--color-brillo);
+}
+
+/* --- CUERPO INFECTADO --- */
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    line-height: 1.7;
+    font-size: 21px;
+    text-shadow: 0 0 2px var(--color-glitch-1), 0 0 5px var(--color-glitch-2);
+    animation: text-flicker 0.01s infinite alternate;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+/* --- CAPAS DE FONDO --- */
+body::before {
+    content: "";
+    position: fixed;
+    top: -25vh;
+    left: -25vw;
+    width: 150vw;
+    height: 150vh;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 255, 0.7) 0%,
+        rgba(0, 255, 255, 0.7) 14.28%,
+        rgba(255, 255, 0, 0.7) 14.28%,
+        rgba(255, 255, 0, 0.7) 28.56%,
+        rgba(255, 0, 255, 0.7) 28.56%,
+        rgba(255, 0, 255, 0.7) 42.84%,
+        rgba(0, 255, 0, 0.7) 42.84%,
+        rgba(0, 255, 0, 0.7) 57.12%,
+        rgba(255, 0, 0, 0.7) 57.12%,
+        rgba(255, 0, 0, 0.7) 71.4%,
+        rgba(0, 0, 255, 0.7) 71.4%,
+        rgba(0, 0, 255, 0.7) 85.68%,
+        rgba(0, 0, 0, 0.7) 85.68%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    opacity: 0.15;
+    animation: tv-color-glitch 0.15s linear infinite;
+    z-index: -1; /* Capa más profunda: TV Estática */
+}
+
+html::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: repeating-linear-gradient(
+        to right,
+        rgba(0, 255, 255, 0.07),
+        rgba(0, 255, 255, 0.07) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+    z-index: 0; /* Capa intermedia: Scanlines */
+    pointer-events: none;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 1px solid var(--color-brillo);
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.95),
+        rgba(0, 0, 0, 0.95) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    position: relative;
+    z-index: 2; /* Capa superior: Contenido */
+    animation: border-flicker 2s ease-in-out infinite alternate;
+}
+
+/* --- ARTÍCULOS Y SECCIONES --- */
+article, section {
+    margin-bottom: 2rem;
+    border-bottom: 1px dashed var(--color-glitch-1);
+    padding-bottom: 1rem;
+}
+
+article:last-child, section:last-child {
+    border-bottom: none;
+}
+
+/* --- ENCABEZADOS MUTANTES --- */
+h1, h2, h3 {
+    font-family: var(--fuente-secundaria);
+    color: var(--color-brillo);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px var(--color-brillo), 0 0 10px var(--color-texto);
+    animation: glitch 1.5s infinite;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+/* --- PÁRRAFOS DELIRANTES --- */
+p {
+    margin-bottom: 1rem;
+}
+
+strong {
+    color: var(--color-brillo);
+    font-weight: normal;
+}
+
+/* --- CITAS DEL SISTEMA --- */
+blockquote {
+    background-color: rgba(0, 20, 0, 0.8);
+    border-left: 3px solid var(--color-terminal);
+    border-right: 1px dashed rgba(0, 255, 65, 0.5);
+    padding: 1.5rem;
+    margin: 2rem 1rem;
+    color: var(--color-terminal);
+    text-shadow: 0 0 5px var(--color-terminal);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.7);
+    font-style: italic;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+blockquote::after {
+    content: '_';
+    font-weight: bold;
+    animation: blink-cursor 1s step-end infinite;
+    margin-left: 2px;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+    font-family: var(--fuente-secundaria);
+    font-style: normal;
+    font-size: 1rem;
+    color: var(--color-texto);
+    text-shadow: none;
+    opacity: 0.7;
+}
+
+/* --- ENLACES ROTOS --- */
+a {
+    color: var(--color-glitch-1);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--color-glitch-1);
+    transition: all 0.1s ease-in-out;
+}
+
+a:hover {
+    color: var(--color-fondo);
+    background-color: var(--color-glitch-1);
+    text-shadow: 0 0 5px var(--color-brillo), 0 0 10px var(--color-brillo);
+    box-shadow: 0 0 15px var(--color-glitch-1);
+    transform: skewX(-10deg);
+}
+
+/* --- IMÁGENES Y LOGOS --- */
+.imagen-central {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto;
+    border: 2px solid var(--color-glitch-2);
+    padding: 5px;
+    box-shadow: 0 0 20px var(--color-glitch-2);
+    filter: saturate(1.2) contrast(1.1);
+}
+
+.logo-header {
+    display: block;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 200px;
+    filter: drop-shadow(0 0 10px var(--color-brillo));
+    animation: logo-pulse 4s ease-in-out infinite alternate;
+}
+
+/* --- ÍNDICE DE ENTRADAS --- */
+.lista-entradas {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-entradas li {
+    margin-bottom: 1rem;
+}
+
+.lista-entradas a {
+    font-size: 1.5rem;
+    font-family: var(--fuente-secundaria);
+}
+
+/* --- ANIMACIONES GLITCH --- */
+@keyframes text-flicker {
+    from { text-shadow: 0 0 2px var(--color-glitch-1), 0 0 5px var(--color-glitch-2); }
+    to { text-shadow: 0 0 3px var(--color-glitch-1), 0 0 6px var(--color-glitch-2); }
+}
+
+@keyframes glitch {
+    0% { transform: skewX(0deg); }
+    2% { transform: skewX(5deg); text-shadow: 0 0 5px var(--color-glitch-1); }
+    4% { transform: skewX(-5deg); }
+    6% { transform: skewX(0deg); }
+    8% { transform: skewX(-2deg); text-shadow: 0 0 5px var(--color-glitch-2); }
+    10% { transform: skewX(0deg); }
+    48% { transform: skewX(0deg); }
+    50% { transform: skewX(10deg); color: var(--color-glitch-1); }
+    52% { transform: skewX(0deg); color: var(--color-brillo); }
+    98% { transform: skewX(0deg); }
+    100% { transform: skewX(-2deg); }
+}
+
+@keyframes tv-color-glitch {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-5%, 5%); }
+    50% { transform: translate(-5%, -5%); }
+    75% { transform: translate(5%, -5%); }
+    100% { transform: translate(5%, 5%); }
+}
+
+@keyframes border-flicker {
+    from { box-shadow: 0 0 15px var(--color-brillo), inset 0 0 10px var(--color-glitch-1); }
+    to { box-shadow: 0 0 20px var(--color-glitch-2), inset 0 0 12px var(--color-glitch-1); }
+}
+
+@keyframes blink-cursor {
+    50% { opacity: 0; }
+}
+
+/* --- FOOTER MUTANTE --- */
+.footer-glitch {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.glitch {
+    position: relative;
+    display: inline-block; /* <-- Ajuste para confinar el efecto */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-terminal);
+    text-shadow: 0 0 3px var(--color-terminal);
+    animation: glitch-main 2s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-fondo);
+    overflow: hidden;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--color-glitch-2);
+    animation: glitch-before 1.5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--color-glitch-1);
+    animation: glitch-after 1.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-main {
+  0% { transform: skew(0deg); }
+  10% { transform: skew(3deg); }
+  20% { transform: skew(0deg); }
+  30% { transform: skew(-3deg); }
+  40% { transform: skew(0deg); }
+  100% { transform: skew(0deg); }
+}
+
+@keyframes glitch-before {
+  0% { clip-path: inset(85% 0 10% 0); }
+  20% { clip-path: inset(50% 0 25% 0); }
+  40% { clip-path: inset(10% 0 5% 0); }
+  60% { clip-path: inset(70% 0 15% 0); }
+  80% { clip-path: inset(40% 0 30% 0); }
+  100% { clip-path: inset(85% 0 10% 0); }
+}
+
+@keyframes glitch-after {
+  0% { clip-path: inset(10% 0 85% 0); }
+  20% { clip-path: inset(45% 0 35% 0); }
+  40% { clip-path: inset(90% 0 2% 0); }
+  60% { clip-path: inset(20% 0 75% 0); }
+  80% { clip-path: inset(55% 0 20% 0); }
+  100% { clip-path: inset(10% 0 85% 0); }
+}
+
+/* --- BOTÓN DE NAVEGACIÓN FIJO --- */
+.boton-indice {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Asegura que esté por encima de todo */
+    background-color: rgba(10, 10, 10, 0.8);
+    color: var(--color-terminal);
+    border: 1px solid var(--color-terminal);
+    padding: 10px 15px;
+    font-family: var(--fuente-principal);
+    font-size: 1rem;
+    text-decoration: none;
+    text-shadow: 0 0 3px var(--color-terminal);
+    box-shadow: 0 0 10px var(--color-glitch-2);
+    animation: border-flicker 3s ease-in-out infinite alternate;
+    transition: all 0.2s ease-in-out;
+}
+
+.boton-indice:hover {
+    background-color: var(--color-terminal);
+    color: var(--color-fondo);
+    box-shadow: 0 0 20px var(--color-terminal);
+    transform: translateY(-3px) scale(1.05);
+}
+
+.boton-esquizoai {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background-color: rgba(10, 10, 10, 0.8);
+    color: var(--color-glitch-1);
+    border: 1px solid var(--color-glitch-1);
+    padding: 10px 15px;
+    font-family: var(--fuente-principal);
+    font-size: 1rem;
+    text-decoration: none;
+    text-shadow: 0 0 3px var(--color-glitch-1);
+    box-shadow: 0 0 10px var(--color-brillo);
+    animation: border-flicker 2.5s ease-in-out infinite alternate;
+    transition: all 0.2s ease-in-out;
+}
+
+.boton-esquizoai:hover {
+    background-color: var(--color-glitch-1);
+    color: var(--color-fondo);
+    box-shadow: 0 0 20px var(--color-glitch-1);
+    transform: translateY(-3px) scale(1.05);
+}
+
